@@ -11,13 +11,45 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* This is optional but can help center vertically as well */
+    height: 100vh; /* 100% of the viewport height */
+
+   
+}
+.background{
+    background-image: url('/sources/imgs/logo3.png'); /* Replace with your image path */
+    background-size: 170px;
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat;
+}
+#glowbox{
+    box-shadow: 0 0 40px 20px rgba(255, 255, 255, 0.7); /* Adjust shadow values as needed */
+    width: 169px;
+    height: 169px;
+    border-radius: 100%;
 }
 
 h1 {
+    margin-top: 67px;
+    margin-bottom: 67px;
     text-align: center;
 }
 
+.name{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.2s;
+
+}
+.name:hover{
+    transition: 0.2s;
+    font-size: 32px;
+
+}
+
+
+/*------------------------------------navbar------------------------------------*/
 * {
     margin: 0;
     padding: 0;
@@ -51,24 +83,15 @@ h1 {
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
-    transition: color 0.1s ease;
+
 }
 
 .nav-list li a:hover {
-    color: #e32929; /* Change the color for hover effect */
+    text-decoration: underline;
 }
 
 .dot{
     width: auto;
 }
 
-.name{
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 30px;
-    transition: text-shadow 0.4s ease-in;
-}
-.name:hover{ text-shadow: 0 0 30px #ffffff;
-    transition: text-shadow 0.4s ease-out;
- }
+
