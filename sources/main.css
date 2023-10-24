@@ -21,6 +21,13 @@ body{
     height: auto;
    
 }
+.centered-container3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   
+}
 .background {
     background-image: url('/sources/imgs/logo3.png'); /* Replace with your image path */
     background-size: 170px;
