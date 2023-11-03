@@ -81,8 +81,12 @@ h1 {
 }
 
 #ach h2{
+    margin-bottom: 2%;
     font-size: 34px;
     text-align: center;
+}
+.box h2{
+    color: rgb(175, 0, 0);
 }
 #boxes{
     margin-left: 10px;
@@ -101,9 +105,11 @@ h1 {
     padding: 20px;
 }
 .element img{
-margin-left: auto;
-margin-right: auto;
-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 7%;
+    min-width: 90%;
+    
     border-radius: 10px;
     border-color: #fffbfb;
     border-width: 3px;
@@ -114,15 +120,48 @@ width: 90%;
 
 }
 .element ul li a{
-    color: white;
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
-
+}
+.element ul li{
+    font-size: 18px;
+}
+.more{
+    font-style: italic;
+    color: rgb(179, 179, 179);
 }
 .element ul li a:hover{
     text-decoration: underline;
 }
+@media (max-width: 768px) {
+    .col-6 img{
+        width: 100%; /* Make columns full-width on screens smaller than 768px */
+    }
+}
+.box {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .element {
+    flex: 1;
+    min-width: 250px; /* Set a minimum width for each box */
+    margin: 10px; /* Add some spacing between the boxes */
+    padding: 10px;
+  }
+  
+  /* Media query for mobile screens */
+  @media (max-width: 559px) {
+    .swap:nth-child(1) {
+      order: 2; /* Swap Box 1 and Box 2 */
+    }
+    
+    .swap:nth-child(2) {
+      order: 1; /* Swap Box 1 and Box 2 */
+    }
+  }
+  
 /*------------------------------------navbar------------------------------------*/
 * {
     margin: 0;
