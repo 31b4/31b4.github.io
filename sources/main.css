@@ -77,7 +77,7 @@ h1 {
 /*------------------------------------achievements------------------------------------*/
 #ach{
     width: 100%;
-    height: 400px;
+    height: auto;
 }
 
 #ach h2{
@@ -91,7 +91,7 @@ h1 {
 #boxes{
     margin-left: 10px;
     margin-right: 10px;
-    height: 200px;
+    height: auto;
 }
 .box{
     margin-top: 4%;
@@ -109,7 +109,8 @@ h1 {
     margin-right: auto;
     margin-bottom: 7%;
     min-width: 80%;
-    
+    width:100%;
+    max-width:500px !important;
     border-radius: 10px;
     border-color: #fffbfb;
     border-width: 3px;
@@ -134,6 +135,7 @@ h1 {
 .element ul li a:hover{
     text-decoration: underline;
 }
+
 @media (max-width: 768px) {
     .col-6 img{
         width: 100%; /* Make columns full-width on screens smaller than 768px */
