@@ -29,8 +29,9 @@ body{
    
 }
 .background {
-    background-image: url('/sources/imgs/logo3.png'); /* Replace with your image path */
+    /*background-image: url('/sources/imgs/blackhole.png'); /* Replace with your image path */
     background-size: 170px;
+    
     background-position: center; /* Center the background image */
     background-repeat: no-repeat;
     opacity: 0.2;
@@ -53,7 +54,7 @@ body{
 }
 
 .final-shadow {
-    box-shadow: 0 0 40px 20px rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.7);
 }
 h1 {
     margin-top: 67px;
