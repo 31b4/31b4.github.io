@@ -26,6 +26,12 @@ body {
 
   }
   
+  .starlink {
+    position: absolute;
+    background: white;
+    width: 1px;
+    height: 1px;
+  }
   .star {
     position: absolute;
     background: white;
