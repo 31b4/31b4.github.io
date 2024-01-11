@@ -156,7 +156,6 @@ h1 {
 .element ul li a:hover{
     color: #747373;
     text-decoration: underline;
-    font-size: 20px;
     transition: 0.2s;
 
 }
