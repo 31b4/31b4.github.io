@@ -32,9 +32,9 @@ body{
 
 
 .background {
-    /*background-image: url('/sources/imgs/blackhole.png'); /* Replace with your image path */
+    /*background-image: url('/sources/imgs/1.jpg'); /* Replace with your image path */
     background-size: 170px;
-    
+    background: url('imgs/milkyway.jpg') center/cover;
     background-position: center; /* Center the background image */
     background-repeat: no-repeat;
     opacity: 0.2;
@@ -82,6 +82,19 @@ h1 {
 /*------------------------------------content------------------------------------*/
 .content{
     height: auto;
+}
+
+
+/*------------------------------------hello------------------------------------*/
+
+.helloo{
+    background: url('/sources/imgs/2.jpg') center/cover;
+    text-align: left !important;
+
+}
+.helloo h2{
+    padding-left: 20px;
+    padding-top: 20px;
 }
 
 
