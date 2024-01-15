@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const starsContainer = document.querySelector('.stars');
+    const starsContainer = document.querySelector('#firstsection');
     let mouseX = 0;
     let mouseY = 0;
   
