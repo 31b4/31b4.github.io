@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const starsContainer = document.querySelector('.starlinks');
+    const starsContainer = document.querySelector('#firstsection');
     var viewportHeight = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
     var [randomX, randomY, randomZ] = RandomPos() // setting starter pos
 
@@ -19,8 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return [rx,ry,rz]
     }
     
-    
-    Start()// start train on load
+    //!!!!!!!!!!!!!!!!!!!!!!!!! DISABLED !!!!!!!!!!!!!!!!!!!!!!!!!
+    return
+    // start train on load
+    Start()
 
     //start a timer if something goes wrong its restarts the train generation
     var timer = setInterval(Start, 30000);
