@@ -154,12 +154,11 @@ h1 {
 }
 /*------------------------------------achievements------------------------------------*/
 #ach{
+    background-color: #000000;
     width: 100%;
     height: auto;
 }
-#ach h1{
-    
-}
+
 #ach h2{
     font-size: 60px;
     font: 60px/45px D-DIN-Bold,Arial,Verdana,sans-serif;
@@ -199,10 +198,14 @@ h1 {
     min-width: 80%;
     width:100%;
     max-width:500px !important;
-    border-radius: 10px;
+    border-radius: 20px;
+    /*
     border-color: #fffbfb;
     border-width: 3px;
     border-style:solid;
+    */
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.7);
+
 }
 .element iframe{
     height: 90%;
