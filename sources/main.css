@@ -215,7 +215,7 @@ h1 {
 
 }
 .element ul li a{
-    color: #cdcccc;
+    color: #cd0000dd;
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
@@ -226,10 +226,7 @@ h1 {
     padding: 10px;
     font-size: 18px;
 }
-.more{
-    font-style: italic;
-    color: rgb(179, 179, 179);
-}
+
 .element ul li a:hover{
     color: #747373;
     text-decoration: underline;
