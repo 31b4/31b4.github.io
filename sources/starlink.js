@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     //!!!!!!!!!!!!!!!!!!!!!!!!! DISABLED !!!!!!!!!!!!!!!!!!!!!!!!!
-    return
+    //return
     // start train on load
     Start()
 
