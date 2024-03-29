@@ -53,6 +53,7 @@ body{
     background-position: center; /* Center the background image */
     background-repeat: no-repeat;
     opacity: 0.2;
+    background-color: #000000;
 
 }
 #firstsection{
@@ -160,14 +161,14 @@ h1 {
 }
 
 #ach h2{
-    font-size: 60px;
     font: 60px/45px D-DIN-Bold,Arial,Verdana,sans-serif;
     font-weight: 400;
     font-style: normal;
     text-transform: uppercase;
     margin-bottom: 2%;
-    font-size: 34px;
+    font-size: 64px;
     text-align: center;
+
 }
 .box h2{
     color: rgb(175, 0, 0);
@@ -276,7 +277,8 @@ h1 {
     display: flex;
     justify-content: center;
 }
-
+/*------------------------------------img slider for aoc------------------------------------*/
+  
 /*------------------------------------navbar------------------------------------*/
 * {
     margin: 0;
