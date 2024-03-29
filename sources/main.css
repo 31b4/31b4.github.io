@@ -266,7 +266,17 @@ h1 {
       order: 1; /* Swap Box 1 and Box 2 */
     }
   }
-  
+/*------------------------------------small js projects------------------------------------*/
+#linklist{
+    color: #ababab;
+}
+#repolist span.btn{
+}
+#twitterembed{
+    display: flex;
+    justify-content: center;
+}
+
 /*------------------------------------navbar------------------------------------*/
 * {
     margin: 0;
