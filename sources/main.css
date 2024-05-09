@@ -114,7 +114,8 @@ h1 {
     }
 
 #whoami{
-    margin-right: 50%;
+    margin-right: auto;
+    margin-left: auto;
     width: 100%;
     z-index: 3;
     text-align: center;
