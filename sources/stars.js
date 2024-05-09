@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // return // DISABLE
     const starsContainer = document.querySelector('#firstsection');
     let mouseX = 0;
     let mouseY = 0;
@@ -8,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
     });
   
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 60; i++) {
       createStar();
     }
   
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
       star.classList.add('star');
       star.style.top = `${Math.random() * 100}%`;
       star.style.left = `${Math.random() * 100}%`;
-      star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+      star.style.animationDuration = `${Math.random() * 6 + 1}s`;
       starsContainer.appendChild(star);
     }
   
@@ -26,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
       stars.forEach((star) => {
         const speed = parseFloat(star.style.animationDuration) || 1;
-        const offsetX = mouseX * speed * 10; // Adjust the sensitivity factor
-        const offsetY = -mouseY * speed * 10; // Adjust the sensitivity factor
+        const offsetX = mouseX * speed * 2; // Adjust the sensitivity factor
+        const offsetY = -mouseY * speed * 2; // Adjust the sensitivity factor
   
         star.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
       });
