@@ -105,13 +105,14 @@ h1 {
 
 .helloo{
     padding-top: 200px;
-    margin-top: 50px;
+    /*margin: 30px;*/
     height: 100%;
     background: url('/sources/imgs/earth.png') center/cover;
     text-align: left !important; 
     transform-style: preserve-3d;
-    transform: translateZ(-2.5px) scale(1.25);
-    }
+    transform: translateZ(-2.5px) scale(1.25);    
+}
+
 
 #whoami{
     margin-right: auto;
@@ -119,7 +120,7 @@ h1 {
     width: 100%;
     z-index: 3;
     text-align: center;
-    transform: translateZ(1px) scale(0.65)
+    transform: translateZ(2.5px) scale(0.65)
 }
 #whoami h1{
     font-size: 60px;
@@ -136,29 +137,20 @@ h1 {
     line-height: 1.6;
     font-size: 24px;
 }
-#rocket{
-    flex: 1;
-    width: 50%;
-    position: relative;
-    z-index: 3;
-    transform: translateZ(5px) scale(0.5);
-    height: 100%;
 
-}
 /*------------------------------------content------------------------------------*/
 .content{
     height: 100%;
     z-index: 1;
     position: relative;
-    background-color: #000000;
-
-
+    margin-top: 20px;
 }
 /*------------------------------------achievements------------------------------------*/
 #ach{
-    background-color: #000000;
+    background-color: rgb(0, 0, 0);
     width: 100%;
     height: auto;
+    padding-top: 50px;
 }
 
 #ach h2{
@@ -172,7 +164,7 @@ h1 {
 
 }
 .box h2{
-    color: rgb(175, 0, 0);
+    color: rgb(0, 98, 255);
 }
 #boxes{
     margin-left: 10px;
@@ -199,16 +191,16 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 7%;
-    min-width: 80%;
-    width:100%;
+    width:auto;
     max-width:500px !important;
+    max-height: 500px !important;
     border-radius: 20px;
     /*
     border-color: #fffbfb;
     border-width: 3px;
     border-style:solid;
-    */
     box-shadow: 0 0 15px 5px rgba(117, 117, 117, 0.7);
+    */
 
 }
 .element iframe{
@@ -219,7 +211,7 @@ h1 {
 
 }
 .element ul li a{
-    color: #cd0000dd;
+    color: rgb(97, 155, 248);
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
@@ -270,9 +262,7 @@ h1 {
   }
 /*------------------------------------small js projects------------------------------------*/
 #linklist{
-    color: #ababab;
-}
-#repolist span.btn{
+    color: rgb(97, 155, 248);
 }
 #twitterembed{
     display: flex;
