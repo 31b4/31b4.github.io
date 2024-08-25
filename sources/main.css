@@ -159,7 +159,7 @@ h1 {
     font-style: normal;
     text-transform: uppercase;
     margin-bottom: 2%;
-    font-size: 64px;
+    font-size: 55px;
     text-align: center;
 
 }
@@ -192,8 +192,8 @@ h1 {
     margin-right: auto;
     margin-bottom: 7%;
     width:auto;
-    max-width:500px !important;
-    max-height: 500px !important;
+    max-width:400px !important;
+    max-height: 400px !important;
     border-radius: 20px;
     /*
     border-color: #fffbfb;
@@ -244,7 +244,7 @@ h1 {
     flex: 1;
     min-width: 250px; /* Set a minimum width for each box */
     margin: 10px; /* Add some spacing between the boxes */
-    padding: 10px;
+    padding: 0px;
   }
   .element ul{
     list-style: none;
@@ -258,6 +258,9 @@ h1 {
     
     .swap:nth-child(2) {
       order: 1; /* Swap Box 1 and Box 2 */
+    }
+    .element{
+        margin: 0px;
     }
   }
 /*------------------------------------small js projects------------------------------------*/
