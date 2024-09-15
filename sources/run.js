@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function() {
     const glowbox = document.getElementById("glowbox");
     const background = document.querySelector(".background");
@@ -28,3 +27,12 @@ document.onreadystatechange = function() {
         document.querySelector("body").style.visibility = "visible";
     }
 };
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});

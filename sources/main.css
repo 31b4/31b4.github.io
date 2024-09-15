@@ -1,3 +1,12 @@
+/* Main CSS file that imports all other CSS files */
+@import 'styles/base.css';
+@import 'styles/layout.css';
+@import 'styles/components.css';
+@import 'styles/animations.css';
+@import 'styles/responsive.css';
+
+/* Any additional styles or overrides can be added here */
+
 body{
     margin:0;
     padding:0;
@@ -21,28 +30,27 @@ body{
     font-style: normal;
   }
   
-.centered-container2 {
-    display: flex;
-    justify-content: center;
-    margin-top: 15vh;
-    margin-bottom: 5vh;
-   
-}
-.centered-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-   
-}
+.centered-container,
+.centered-container2,
 .centered-container3 {
     display: flex;
     justify-content: center;
+}
+
+.centered-container {
+    align-items: center;
+    height: auto;
+}
+
+.centered-container2 {
+    margin-top: 15vh;
+    margin-bottom: 5vh;
+}
+
+.centered-container3 {
     align-items: center;
     min-height: 100vh;
-    overflow: auto;
-    overflow-y: auto; /* Enable vertical scrolling if content exceeds viewport height */
-
+    overflow-y: auto;
 }
 
 
@@ -103,39 +111,90 @@ h1 {
 
 /*------------------------------------hello------------------------------------*/
 
-.helloo{
-    padding-top: 200px;
-    /*margin: 30px;*/
-    height: 100%;
-    background: url('/sources/imgs/earth.png') center/cover;
-    text-align: left !important; 
-    transform-style: preserve-3d;
-    transform: translateZ(-2.5px) scale(1.25);    
-}
-
-
-#whoami{
-    margin-right: auto;
-    margin-left: auto;
-    width: 100%;
-    z-index: 3;
+.helloo {
+    padding: 200px 20px 150px;
+    background: url('/sources/imgs/earth.png') center/cover no-repeat;
     text-align: center;
-    transform: translateZ(2.5px) scale(0.65)
+    position: relative;
 }
-#whoami h1{
-    font-size: 60px;
-    font: 60px/45px D-DIN-Bold,Arial,Verdana,sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    text-transform: uppercase;
+
+#whoami {
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 3;
 }
-#whoami h3{
-    font-size: 30px;
+
+#whoami h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
-#whoami p{
-    font-family: D-DIN-Regular;
-    line-height: 1.6;
-    font-size: 24px;
+
+.subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+}
+
+.subtitle p {
+    margin: 10px 0;
+}
+
+.cta-buttons {
+    margin-top: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: rgba(0, 98, 255, 0.7);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: rgba(0, 98, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    border: 2px solid rgba(0, 98, 255, 0.7);
+    color: rgba(0, 98, 255, 0.9);
+}
+
+.cta-button.secondary:hover {
+    background-color: rgba(0, 98, 255, 0.2);
+    color: white;
+}
+
+.asteroid {
+    width: 200px;
+    margin-top: 40px;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@media (max-width: 768px) {
+    #whoami h1 {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .asteroid {
+        width: 150px;
+    }
 }
 
 /*------------------------------------content------------------------------------*/
@@ -177,6 +236,12 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     display: flex;
+    transition: transform 0.3s ease;
+}
+.box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 .element{
     width: 50%; /* Each div takes 50% of the container's width */
@@ -195,6 +260,7 @@ h1 {
     max-width:400px !important;
     max-height: 400px !important;
     border-radius: 20px;
+    transition: transform 0.3s ease;
     /*
     border-color: #fffbfb;
     border-width: 3px;
@@ -202,6 +268,10 @@ h1 {
     box-shadow: 0 0 15px 5px rgba(117, 117, 117, 0.7);
     */
 
+}
+.element img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
 .element iframe{
     height: 90%;
@@ -242,7 +312,7 @@ h1 {
   
   .element {
     flex: 1;
-    min-width: 250px; /* Set a minimum width for each box */
+    min-width: 300px; /* Set a minimum width for each box */
     margin: 10px; /* Add some spacing between the boxes */
     padding: 0px;
   }
@@ -348,5 +418,66 @@ h1 {
 @keyframes spin {
     100% {
         transform: rotate(360deg);
+    }
+}
+
+.aoc-images {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    min-width: 400px; /* Set a minimum width for each box */
+
+}
+
+.aoc-2023, .aoc-2022, .aoc-2024 {
+    position: absolute;
+    max-width: 60% !important;
+    max-height: 60% !important;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.aoc-2022 {
+    transform: rotate(-5deg) translateX(-15%);
+    z-index: 1;
+}
+
+.aoc-2023 {
+    transform: rotate(0deg) translateX(0%);
+    z-index: 2;
+}
+
+.aoc-2024 {
+    transform: rotate(5deg) translateX(15%);
+    z-index: 3;
+    opacity: 0; /* Initially invisible */ 
+    pointer-events: none; /* Prevents interaction with the invisible image */
+}
+
+.aoc-images:hover .aoc-2022 {
+    transform: rotate(-10deg) translateX(-20%);
+}
+
+.aoc-images:hover .aoc-2023 {
+    transform: rotate(0deg) translateY(-5%);
+}
+
+.aoc-images:hover .aoc-2024 {
+    transform: rotate(10deg) translateX(20%);
+    opacity: 1; /* Make visible on hover */
+}
+
+@media (max-width: 768px) {
+    .aoc-images {
+        height: 600px;
+    }
+    
+    .aoc-2023, .aoc-2022, .aoc-2024 {
+        max-width: 70% !important;
+        max-height: 70% !important;
     }
 }
