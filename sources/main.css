@@ -116,6 +116,7 @@ h1 {
     background: url('/sources/imgs/earth.png') center/cover no-repeat;
     text-align: center;
     position: relative;
+    transform: translateZ(-2.5px) scale(1.25);    
 }
 
 #whoami {
@@ -202,7 +203,7 @@ h1 {
     height: 100%;
     z-index: 1;
     position: relative;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 /*------------------------------------achievements------------------------------------*/
 #ach{
