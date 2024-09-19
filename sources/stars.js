@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const littleBearStars = [
         {x: 30, y: 45, name: 'Pherkad'},
         {x: 30, y: 55, name: 'Zeta UMi'},
-        {x: 15, y: 55, name: 'Kochab'},
-        {x: 13, y: 45, name: 'Eta UMi'},
+        {x: 15, y: 55, name: 'Pherkad'},
+        {x: 13, y: 45, name: 'Kochab'},
         {x: 52, y: 20, name: 'Polaris'},
         {x: 40, y: 40, name: 'Epsilon UMi'},
         {x: 48, y: 30, name: 'Yildun'},
