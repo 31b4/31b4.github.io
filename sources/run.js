@@ -86,3 +86,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 2000);
     }
 });
+
+/*
+document.addEventListener('DOMContentLoaded', function() {
+    const contactButton = document.querySelector('a[href="#contact"]');
+    contactButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        const contactSection = document.getElementById('contact');
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+*/

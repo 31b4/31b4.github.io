@@ -23,17 +23,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     function createConstellation() {
+      const padding = 10;
+      const width = window.innerWidth - 2 * padding;
+      const height = window.innerHeight - 2 * padding;
+      const scale = Math.min(width / 100, height / 100);
+      const centerX = width / 2;
+      const centerY = height / 2;
+      const rotation = Math.random() * 2 * Math.PI; // Random rotation in radians
+
       const littleBearStars = [
-        {x: 30, y: 45, name: 'Pherkad'},      // 3 - Bottom left of bowl
-        {x: 30, y: 55, name: 'Zeta UMi'},     // 5 - Connection of handle to bowl
-        {x: 15, y: 55, name: 'Kochab'},       // 2 - Bottom right of bowl
-        {x: 13, y: 45, name: 'Eta UMi'},      // 7 - Top left of bowl
-        {x: 52, y: 20, name: 'Polaris'},      // 1 - North Star (handle tip)
-        {x: 40, y: 40, name: 'Epsilon UMi'},  // 4 - Middle of handle
-        {x: 48, y: 30, name: 'Yildun'},       // 6 - Second star in handle
+        {x: 30, y: 45, name: 'Pherkad'},
+        {x: 30, y: 55, name: 'Zeta UMi'},
+        {x: 15, y: 55, name: 'Kochab'},
+        {x: 13, y: 45, name: 'Eta UMi'},
+        {x: 52, y: 20, name: 'Polaris'},
+        {x: 40, y: 40, name: 'Epsilon UMi'},
+        {x: 48, y: 30, name: 'Yildun'},
       ];
-      
-      littleBearStars.forEach((star, index) => {
+
+      const transformedStars = littleBearStars.map(star => {
+        const x = star.x - 50;
+        const y = star.y - 50;
+        const rotatedX = x * Math.cos(rotation) - y * Math.sin(rotation);
+        const rotatedY = x * Math.sin(rotation) + y * Math.cos(rotation);
+        return {
+          x: (rotatedX * scale + centerX) / window.innerWidth * 100,
+          y: (rotatedY * scale + centerY) / window.innerHeight * 100,
+          name: star.name
+        };
+      });
+
+      // Use transformedStars instead of littleBearStars in the rest of the function
+      transformedStars.forEach((star, index) => {
         const starElement = document.createElement('div');
         starElement.classList.add('star', 'constellation-star');
         starElement.style.top = `${star.y}%`;
@@ -47,11 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Draw lines between stars (initially hidden)
+      // Update the line drawing code to use transformedStars
       const lineOrder = [0, 1, 2, 3, 0, 5, 6, 4];
       for (let i = 1; i < lineOrder.length; i++) {
-        const star = littleBearStars[lineOrder[i]];
-        const prevStar = littleBearStars[lineOrder[i-1]];
+        const star = transformedStars[lineOrder[i]];
+        const prevStar = transformedStars[lineOrder[i-1]];
         drawLine(prevStar, star);
       }
 
@@ -79,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // Show constellation every 10 seconds
-      setInterval(showConstellation, 10000);
+      setInterval(showConstellation, 7000);
     }
   
     function drawLine(start, end) {
@@ -111,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
       starsContainer.appendChild(line);
     }
   
-    //createConstellation(); // DISABLE ursa minor
+    createConstellation(); // DISABLE ursa minor
   
     function updateStarsPosition() {
       const stars = document.querySelectorAll('.star');
