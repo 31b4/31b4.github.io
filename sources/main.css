@@ -112,12 +112,16 @@ h1 {
 /*------------------------------------hello------------------------------------*/
 
 .helloo {
-    padding: 200px 20px 150px;
+    margin-top: 120px;
+    padding: 100px 20px 150px;
     background: url('/sources/imgs/earth.png') center/cover no-repeat;
     text-align: center;
     position: relative;
+    transform: translateZ(-2.5px) scale(1.25);    
 }
-
+.helloo * {
+    pointer-events: auto; /* Re-enable pointer events for .helloo children */
+  }
 #whoami {
     max-width: 800px;
     margin: 0 auto;
@@ -202,7 +206,7 @@ h1 {
     height: 100%;
     z-index: 1;
     position: relative;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 /*------------------------------------achievements------------------------------------*/
 #ach{
@@ -391,7 +395,6 @@ h1 {
 .socials a:hover{
     width: 36px;
     height: 36px;
-    background-color: red;
 }
 
 /*------------------------------------loading------------------------------------*/
@@ -481,3 +484,76 @@ h1 {
         max-height: 70% !important;
     }
 }
+
+#contact {
+    text-align: center;
+    padding: 50px 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin:auto;
+    max-width: 600px;
+}
+
+#contact h2 {
+    margin-top: 5px;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#contact p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.email-link {
+    display: inline-block;
+    font-size: 1.2em;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid rgba(0, 98, 255, 0.7);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.email-link:hover {
+    background-color: rgba(233, 233, 233, 0.7);
+    color: #000;
+}
+.star-container {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .constellation-star {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .constellation-star.hovered {
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.7);
+  }
+  
+  .star-name {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 20;
+  }
