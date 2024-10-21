@@ -400,29 +400,78 @@ h1 {
 /*------------------------------------loading------------------------------------*/
 
 
-#loader {
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; /* or any color that matches your design */
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.preloader.fade-out {
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.milky-way {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.milky-way.fade-in {
+    opacity: 1;
+}
+
+.centralize {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.double-bounce1, .double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #fff; /* or any color that contrasts with your background */
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+    animation-delay: -1.0s;
+}
+
+@keyframes sk-bounce {
+    0%, 100% { 
+        transform: scale(0.0);
+    } 50% { 
+        transform: scale(1.0);
+    }
+}
+
+/* Remove the old loader styles */
+/* #loader {
     border: 12px solid #f3f3f3;
     border-radius: 50%;
     border-top: 12px solid #444444;
     width: 70px;
     height: 70px;
     animation: spin 1s linear infinite;
-}
-
-.center {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-
-@keyframes spin {
-    100% {
-        transform: rotate(360deg);
-    }
-}
+} */
 
 .aoc-images {
     position: relative;
@@ -557,3 +606,5 @@ h1 {
     pointer-events: none;
     z-index: 20;
   }
+
+

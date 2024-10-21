@@ -1,4 +1,32 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
+    const loader = document.getElementById('loader');
+    const content = document.querySelector('.milky-way');
+    const startTime = Date.now();
+
+    // Initially hide the content
+    content.style.visibility = 'hidden';
+
+    function hideLoader() {
+        const elapsedTime = Date.now() - startTime;
+        const remainingTime = Math.max(1500 - elapsedTime, 0);
+
+        setTimeout(() => {
+            loader.classList.add('fade-out');
+            content.style.visibility = 'visible';
+            
+            setTimeout(() => {
+                loader.style.display = 'none';
+                content.classList.add('fade-in');
+            }, 500); // This should match the transition duration in CSS
+        }, remainingTime);
+    }
+
+    if (document.readyState === 'complete') {
+        hideLoader();
+    } else {
+        window.addEventListener('load', hideLoader);
+    }
+
     const glowbox = document.getElementById("glowbox");
     const background = document.querySelector(".background");
     // After a short delay (adjust as needed), add the final shadow class
@@ -18,6 +46,8 @@ addEventListener("contextmenu", function(e) {
     e.preventDefault();
 }); 
 
+// Remove or comment out the following code as it's now redundant
+/*
 document.onreadystatechange = function() {
     if (document.readyState !== "complete") {
         document.querySelector("body").style.visibility = "hidden";
@@ -27,6 +57,7 @@ document.onreadystatechange = function() {
         document.querySelector("body").style.visibility = "visible";
     }
 };
+*/
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
