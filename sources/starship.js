@@ -52,6 +52,11 @@ class Starship {
         this.isStopping = false;
         this.image = new Image();
         this.image.src = '/sources/imgs/starship.png';
+
+        // Change the initial position to the top right corner
+        this.x = window.innerWidth - this.width;
+        this.y = this.height;
+
     }
 
     update(mouseX, mouseY) {
@@ -155,8 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let particles = [];
         const starship = new Starship();
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
+        let mouseX = window.innerWidth - starship.width / 2;
+        let mouseY = starship.height / 2;
 
         function createParticles(x, y, angle) {
             for (let i = 0; i < 5; i++) {
