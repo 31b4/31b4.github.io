@@ -62,11 +62,38 @@ document.onreadystatechange = function() {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+
+        // Target element
+        const targetElement = document.querySelector(this.getAttribute('href'));
+
+        // Initial setup
+        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+        const startPosition = window.scrollY;
+        const distance = targetPosition - startPosition;
+        const duration = 1000; // Change this to adjust speed
+        let startTime = null;
+
+        // Custom animation function
+        function smoothScrollAnimation(currentTime) {
+            print("working")
+            if (!startTime) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+
+            // Custom easing function for smoother stop
+            const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+            // Calculate scroll position
+            const run = easeOutCubic(timeElapsed / duration) * distance + startPosition;
+            window.scrollTo(0, run);
+
+            if (timeElapsed < duration) requestAnimationFrame(smoothScrollAnimation);
+        }
+
+        // Start animation
+        requestAnimationFrame(smoothScrollAnimation);
     });
 });
+
 
 document.addEventListener('DOMContentLoaded', function() {
     // Disable text selection
