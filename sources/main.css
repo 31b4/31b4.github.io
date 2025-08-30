@@ -506,8 +506,6 @@ h1 {
 .aoc-2024 {
     transform: rotate(5deg) translateX(15%);
     z-index: 3;
-    opacity: 0; /* Initially invisible */ 
-    pointer-events: none; /* Prevents interaction with the invisible image */
 }
 
 .aoc-images:hover .aoc-2022 {
