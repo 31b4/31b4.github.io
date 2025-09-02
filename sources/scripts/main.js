@@ -75,7 +75,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
         // Custom animation function
         function smoothScrollAnimation(currentTime) {
-            print("working")
             if (!startTime) startTime = currentTime;
             const timeElapsed = currentTime - startTime;
 
