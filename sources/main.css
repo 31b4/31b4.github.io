@@ -1,9 +1,4 @@
-/* Main CSS file that imports all other CSS files */
-@import 'styles/base.css';
-@import 'styles/layout.css';
-@import 'styles/components.css';
-@import 'styles/animations.css';
-@import 'styles/responsive.css';
+/* Main CSS file - all styles are included here */
 
 /* Any additional styles or overrides can be added here */
 
@@ -44,13 +39,13 @@ body{
 }
 @font-face {
     font-family: 'D-DIN-Regular';
-    src: url('/sources/fonts/D-DIN.otf') format('truetype');
+    src: url('fonts/D-DIN.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
   @font-face {
     font-family: 'D-DIN-Bold';
-    src: url('/sources/fonts/D-DIN-Bold.otf') format('truetype');
+    src: url('fonts/D-DIN-Bold.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
