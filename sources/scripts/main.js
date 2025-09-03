@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 Main.js loaded successfully!');
+    
     // Luxury loading overlay functionality
     const loadingOverlay = document.getElementById('loading-overlay');
     const contentContainer = document.querySelector('.milky-way');
+    
+    console.log('Loading overlay found:', !!loadingOverlay);
+    console.log('Content container found:', !!contentContainer);
     
     // Start time to ensure minimum loading duration
     const startTime = Date.now();
