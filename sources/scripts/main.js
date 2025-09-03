@@ -1,12 +1,38 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Main.js loaded successfully!');
+    // Calculate and update age automatically
+    function calculateAge() {
+        const birthDate = new Date(2005, 0, 4); // January 4, 2005 (month is 0-indexed)
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+        
+        // If birthday hasn't occurred this year yet, subtract 1
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        
+        return age;
+    }
     
+    // Update age in the page
+    const ageDisplay = document.getElementById('age-display');
+    const metaDescription = document.getElementById('meta-description');
+    
+    if (ageDisplay) {
+        const currentAge = calculateAge();
+        ageDisplay.textContent = currentAge;
+        
+        // Update meta description with current age
+        if (metaDescription) {
+            metaDescription.setAttribute('content', 
+                `Portfolio of Bence Szilagyi, a ${currentAge}-year-old developer from Hungary showcasing projects and achievements.`
+            );
+        }
+    }
+
     // Luxury loading overlay functionality
     const loadingOverlay = document.getElementById('loading-overlay');
     const contentContainer = document.querySelector('.milky-way');
-    
-    console.log('Loading overlay found:', !!loadingOverlay);
-    console.log('Content container found:', !!contentContainer);
     
     // Start time to ensure minimum loading duration
     const startTime = Date.now();
@@ -29,20 +55,25 @@ document.addEventListener('DOMContentLoaded', function() {
                     loadingOverlay.classList.add('hidden');
                 }
                 
-                if (contentContainer) {
-                    contentContainer.style.opacity = '1';
-                    contentContainer.style.transform = 'translateY(0)';
+                            if (contentContainer) {
+                contentContainer.classList.add('loaded');
+            }
+                
+                            // Trigger entrance animations
+            triggerEntranceAnimations();
+            
+            // Re-initialize button functionality after loading screen disappears
+            setTimeout(() => {
+                console.log('🔄 Re-initializing buttons after loading screen');
+                initSmoothScrolling();
+            }, 500);
+            
+            // Remove overlay from DOM after transition completes
+            setTimeout(() => {
+                if (loadingOverlay && loadingOverlay.parentNode) {
+                    loadingOverlay.parentNode.removeChild(loadingOverlay);
                 }
-                
-                // Trigger entrance animations
-                triggerEntranceAnimations();
-                
-                // Remove overlay from DOM after transition completes
-                setTimeout(() => {
-                    if (loadingOverlay && loadingOverlay.parentNode) {
-                        loadingOverlay.parentNode.removeChild(loadingOverlay);
-                    }
-                }, 1200);
+            }, 1200);
             }, 0); // 300ms delay between content and background fade
         }, remainingTime);
     }
@@ -60,12 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Initialize content as hidden initially
-    if (contentContainer) {
-        contentContainer.style.opacity = '0';
-        contentContainer.style.transform = 'translateY(20px)';
-        contentContainer.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-    }
+    // Content is initially hidden by CSS
     
     // Hide loading overlay when everything is loaded
     if (document.readyState === 'complete') {
@@ -91,6 +117,48 @@ document.addEventListener('DOMContentLoaded', function() {
             background.classList.add("show-background");
         }
     }, 0); // Adjust the delay in milliseconds
+    
+    // Initialize smooth scrolling for CTA buttons
+    initSmoothScrolling();
+    
+    // Debug: Check if buttons and targets exist
+    console.log('🔍 Debugging CTA buttons:');
+    console.log('Projects button:', document.querySelector('a[href="#projects"]'));
+    console.log('Contact button:', document.querySelector('a[href="#contact"]'));
+    console.log('Projects section:', document.getElementById('projects'));
+    console.log('Contact section:', document.getElementById('contact'));
+    
+    // Direct button event listeners as fallback
+    const projectsButton = document.querySelector('a[href="#projects"]');
+    const contactButton = document.querySelector('a[href="#contact"]');
+    
+    if (projectsButton) {
+        projectsButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('🎯 Projects button clicked!');
+            const target = document.getElementById('projects');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+                console.log('✅ Scrolling to projects section');
+            } else {
+                console.error('❌ Projects section not found');
+            }
+        });
+    }
+    
+    if (contactButton) {
+        contactButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('🎯 Contact button clicked!');
+            const target = document.getElementById('contact');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+                console.log('✅ Scrolling to contact section');
+            } else {
+                console.error('❌ Contact section not found');
+            }
+        });
+    }
 });
 
 addEventListener("contextmenu", function(e) {
@@ -99,39 +167,51 @@ addEventListener("contextmenu", function(e) {
 
 
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+// Smooth scrolling for anchor links - moved inside DOMContentLoaded to ensure DOM is ready
+function initSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-        // Target element
-        const targetElement = document.querySelector(this.getAttribute('href'));
+            // Get target element
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
 
-        // Initial setup
-        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-        const startPosition = window.scrollY;
-        const distance = targetPosition - startPosition;
-        const duration = 1000; // Change this to adjust speed
-        let startTime = null;
+            // Check if target element exists
+            if (!targetElement) {
+                console.warn(`Target element ${targetId} not found`);
+                return;
+            }
 
-        // Custom animation function
-        function smoothScrollAnimation(currentTime) {
-            if (!startTime) startTime = currentTime;
-            const timeElapsed = currentTime - startTime;
+            // Calculate positions
+            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+            const startPosition = window.scrollY;
+            const distance = targetPosition - startPosition;
+            const duration = 1000; // 1 second scroll duration
+            let startTime = null;
 
-            // Custom easing function for smoother stop
-            const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+            // Custom animation function
+            function smoothScrollAnimation(currentTime) {
+                if (!startTime) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
 
-            // Calculate scroll position
-            const run = easeOutCubic(timeElapsed / duration) * distance + startPosition;
-            window.scrollTo(0, run);
+                // Custom easing function for smoother stop
+                const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
-            if (timeElapsed < duration) requestAnimationFrame(smoothScrollAnimation);
-        }
+                // Calculate scroll position
+                const run = easeOutCubic(timeElapsed / duration) * distance + startPosition;
+                window.scrollTo(0, run);
 
-        // Start animation
-        requestAnimationFrame(smoothScrollAnimation);
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(smoothScrollAnimation);
+                }
+            }
+
+            // Start animation
+            requestAnimationFrame(smoothScrollAnimation);
+        });
     });
-});
+}
 
 
 document.addEventListener('DOMContentLoaded', function() {
