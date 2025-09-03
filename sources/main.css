@@ -7,6 +7,31 @@
 
 /* Any additional styles or overrides can be added here */
 
+:root {
+    /* Sophisticated dark luxury palette */
+    --bg-color: #0b0b0f;
+    --card-color: #1a1a20;
+    --card-hover: #22222a;
+    --text-color: #f5f5f7;
+    --accent-color: #c9a96b; /* Sophisticated champagne gold */
+    --hover-color: #e8c474; /* Elegant warm gold for hover */
+    --secondary-text: #b4b4b6;
+    --tertiary-text: #8e8e93;
+    --shadow-color: rgba(0, 0, 0, 0.6);
+    --deep-shadow: rgba(0, 0, 0, 0.8);
+    --luxury-shadow: rgba(201, 169, 107, 0.15);
+    --border-color: #2c2c34;
+    --subtle-border: #38383f;
+    --premium-gold: #d4c194;
+    --dark-gold: #a88a5c;
+    --luxury-bronze: #b8956a;
+    --platinum: #e5e5ea;
+    --luxury-gradient: linear-gradient(135deg, #c9a96b 0%, #d4c194 50%, #b8956a 100%);
+    --card-gradient: linear-gradient(145deg, #1a1a20 0%, #1f1f26 100%);
+    --glass-bg: rgba(26, 26, 32, 0.8);
+    --glass-border: rgba(201, 169, 107, 0.2);
+}
+
 body{
     margin:0;
     padding:0;
@@ -73,11 +98,16 @@ body{
     opacity: 1;
 }
 #glowbox {
-    width: 169px;
+    width: auto;
+    min-width: 250px;
     height: 169px;
-    border-radius: 100%;
+    border-radius: 100px;
     color: #000000;
     transition: box-shadow 1s ease; /* Adjust the duration and easing as needed */
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .initial-shadow {
@@ -88,9 +118,9 @@ body{
     box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.7);
 }
 h1 {
-    margin-top: 67px;
-    margin-bottom: 67px;
+    margin: 0;
     text-align: center;
+    width: 100%;
 }
 
 .name{
@@ -397,81 +427,7 @@ h1 {
     height: 36px;
 }
 
-/*------------------------------------loading------------------------------------*/
 
-
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000; /* or any color that matches your design */
-    z-index: 9999;
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-
-.preloader.fade-out {
-    opacity: 0;
-    transform: scale(1.1);
-}
-
-.milky-way {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.milky-way.fade-in {
-    opacity: 1;
-}
-
-.centralize {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
-.spinner {
-    width: 40px;
-    height: 40px;
-    position: relative;
-}
-
-.double-bounce1, .double-bounce2 {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-color: #fff; /* or any color that contrasts with your background */
-    opacity: 0.6;
-    position: absolute;
-    top: 0;
-    left: 0;
-    animation: sk-bounce 2.0s infinite ease-in-out;
-}
-
-.double-bounce2 {
-    animation-delay: -1.0s;
-}
-
-@keyframes sk-bounce {
-    0%, 100% { 
-        transform: scale(0.0);
-    } 50% { 
-        transform: scale(1.0);
-    }
-}
-
-/* Remove the old loader styles */
-/* #loader {
-    border: 12px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 12px solid #444444;
-    width: 70px;
-    height: 70px;
-    animation: spin 1s linear infinite;
-} */
 
 .aoc-images {
     position: relative;
@@ -604,5 +560,163 @@ h1 {
     pointer-events: none;
     z-index: 20;
   }
+
+/*------------------------------------luxury loading overlay------------------------------------*/
+
+/* Loading overlay styles - Sophisticated luxury design */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0b0b0f 0%, #1a1a20 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s, visibility 1.2s ease 0.3s;
+    backdrop-filter: blur(20px);
+}
+
+.loading-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-overlay.content-hidden .loader-container {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.loader-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.luxury-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    animation: logoReveal 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.logo-letter {
+    font-family: D-DIN-Regular;
+    font-size: 4.5rem;
+    font-weight: 400;
+    color: white;
+    letter-spacing: -2px;
+    position: relative;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: letterReveal 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.logo-letter:first-child {
+    animation-delay: 0.3s;
+}
+
+.logo-letter:last-child {
+    animation-delay: 0.6s;
+}
+
+.logo-separator {
+    width: 8px;
+    height: 8px;
+    background: white;
+    margin: 0 30px;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: separatorReveal 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards;
+    box-shadow: 0 0 20px var(--luxury-shadow);
+}
+
+.elegant-loading {
+    position: absolute;
+    bottom: 80px;
+    width: 80%;
+    height: 2px;
+    background: var(--card-color);
+    border-radius: 2px;
+    overflow: hidden;
+    animation: fadeIn 1.8s ease;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3) inset;
+}
+
+.elegant-loading::before {
+    content: '';
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    background: white;
+    animation: elegantProgress 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+    box-shadow: 0 0 15px var(--luxury-shadow);
+}
+
+@keyframes logoReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes letterReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes separatorReveal {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes elegantProgress {
+    0% {
+        left: -30%;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+/* Base animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
 

@@ -1,63 +1,98 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const loader = document.getElementById('loader');
-    const content = document.querySelector('.milky-way');
+    // Luxury loading overlay functionality
+    const loadingOverlay = document.getElementById('loading-overlay');
+    const contentContainer = document.querySelector('.milky-way');
+    
+    // Start time to ensure minimum loading duration
     const startTime = Date.now();
-
-    // Initially hide the content
-    content.style.visibility = 'hidden';
-
-    function hideLoader() {
+    const minLoadTime = 2500; // 2.5 seconds for dramatic effect
+    
+    // Function to hide loading overlay with minimum duration
+    function hideLoadingOverlay() {
         const elapsedTime = Date.now() - startTime;
-        const remainingTime = Math.max(1500 - elapsedTime, 0);
-
+        const remainingTime = Math.max(0, minLoadTime - elapsedTime);
+        
         setTimeout(() => {
-            loader.classList.add('fade-out');
-            content.style.visibility = 'visible';
+            // First stage: Hide the content (letters and progress bar)
+            if (loadingOverlay) {
+                loadingOverlay.classList.add('content-hidden');
+            }
             
+            // Second stage: Hide the background after a short delay
             setTimeout(() => {
-                loader.style.display = 'none';
-                content.classList.add('fade-in');
-            }, 500); // This should match the transition duration in CSS
+                if (loadingOverlay) {
+                    loadingOverlay.classList.add('hidden');
+                }
+                
+                if (contentContainer) {
+                    contentContainer.style.opacity = '1';
+                    contentContainer.style.transform = 'translateY(0)';
+                }
+                
+                // Trigger entrance animations
+                triggerEntranceAnimations();
+                
+                // Remove overlay from DOM after transition completes
+                setTimeout(() => {
+                    if (loadingOverlay && loadingOverlay.parentNode) {
+                        loadingOverlay.parentNode.removeChild(loadingOverlay);
+                    }
+                }, 1200);
+            }, 0); // 300ms delay between content and background fade
         }, remainingTime);
     }
-
-    if (document.readyState === 'complete') {
-        hideLoader();
-    } else {
-        window.addEventListener('load', hideLoader);
+    
+    // Enhanced entrance animations
+    function triggerEntranceAnimations() {
+        // Animate content elements with staggered timing
+        const animatedElements = document.querySelectorAll('.navbar, #whoami, .content');
+        animatedElements.forEach((element, index) => {
+            setTimeout(() => {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+                element.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            }, index * 200);
+        });
     }
+    
+    // Initialize content as hidden initially
+    if (contentContainer) {
+        contentContainer.style.opacity = '0';
+        contentContainer.style.transform = 'translateY(20px)';
+        contentContainer.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    }
+    
+    // Hide loading overlay when everything is loaded
+    if (document.readyState === 'complete') {
+        hideLoadingOverlay();
+    } else {
+        window.addEventListener('load', hideLoadingOverlay);
+    }
+    
+    // Fallback to ensure loading screen doesn't stay forever
+    setTimeout(() => {
+        hideLoadingOverlay();
+    }, 6000); // 6 second maximum
 
     const glowbox = document.getElementById("glowbox");
     const background = document.querySelector(".background");
     // After a short delay (adjust as needed), add the final shadow class
     setTimeout(function() {
-        glowbox.classList.remove("initial-shadow");
-        glowbox.classList.add("final-shadow");
-        background.classList.add("show-background");
+        if (glowbox) {
+            glowbox.classList.remove("initial-shadow");
+            glowbox.classList.add("final-shadow");
+        }
+        if (background) {
+            background.classList.add("show-background");
+        }
     }, 0); // Adjust the delay in milliseconds
-    
-    // You can remove the initial class after adding the final shadow if needed
-    // setTimeout(function() {
-    //     glowbox.classList.remove("initial-shadow");
-    // }, 3000); // Adjust the delay in milliseconds
 });
 
 addEventListener("contextmenu", function(e) {
     e.preventDefault();
 }); 
 
-// Remove or comment out the following code as it's now redundant
-/*
-document.onreadystatechange = function() {
-    if (document.readyState !== "complete") {
-        document.querySelector("body").style.visibility = "hidden";
-        document.querySelector("#loader").style.visibility = "visible";
-    } else {
-        document.querySelector("#loader").style.display = "none";
-        document.querySelector("body").style.visibility = "visible";
-    }
-};
-*/
+
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
