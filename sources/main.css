@@ -1,6 +1,4 @@
-/* Main CSS file - all styles are included here */
-
-/* Any additional styles or overrides can be added here */
+/* Main CSS file - completely rebuilt for GitHub Pages */
 
 :root {
     /* Sophisticated dark luxury palette */
@@ -33,23 +31,23 @@ body{
     color:white;
     height: 100%;
     background-color: #000000;
-    /*    old font     font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;*/
     font-family: D-DIN-Regular;
-
 }
+
 @font-face {
     font-family: 'D-DIN-Regular';
     src: url('fonts/D-DIN.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
-  }
-  @font-face {
+}
+
+@font-face {
     font-family: 'D-DIN-Bold';
     src: url('fonts/D-DIN-Bold.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
-  }
-  
+}
+
 .centered-container,
 .centered-container2,
 .centered-container3 {
@@ -73,32 +71,31 @@ body{
     overflow-y: auto;
 }
 
-
 .background {
-    /*background-image: url('/sources/imgs/1.jpg'); /* Replace with your image path */
     background-size: 170px;
     background: url('imgs/milkyway.jpg') center/cover;
-    background-position: center; /* Center the background image */
+    background-position: center;
     background-repeat: no-repeat;
     opacity: 0.2;
     background-color: #000000;
-
 }
+
 #firstsection{
     transform: translateZ(-40px) scale(5);
     transform-style: preserve-3d;
-
 }
+
 .show-background {
     opacity: 1;
 }
+
 #glowbox {
     width: auto;
     min-width: 250px;
     height: 169px;
     border-radius: 100px;
     color: #000000;
-    transition: box-shadow 1s ease; /* Adjust the duration and easing as needed */
+    transition: box-shadow 1s ease;
     padding: 0 20px;
     display: flex;
     align-items: center;
@@ -112,6 +109,7 @@ body{
 .final-shadow {
     box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.7);
 }
+
 h1 {
     margin: 0;
     text-align: center;
@@ -124,15 +122,12 @@ h1 {
     font-weight: bold;
     font-size: 30px;
     transition: 0.2s;
-
 }
+
 .name:hover{
     transition: 0.2s;
     font-size: 32px;
-
 }
-
-
 
 /*------------------------------------hello------------------------------------*/
 
@@ -144,9 +139,11 @@ h1 {
     position: relative;
     transform: translateZ(-2.5px) scale(1.25);    
 }
+
 .helloo * {
-    pointer-events: auto; /* Re-enable pointer events for .helloo children */
-  }
+    pointer-events: auto;
+}
+
 #whoami {
     max-width: 800px;
     margin: 0 auto;
@@ -233,6 +230,7 @@ h1 {
     position: relative;
     margin-top: 0px;
 }
+
 /*------------------------------------achievements------------------------------------*/
 #ach{
     background-color: rgb(0, 0, 0);
@@ -249,16 +247,18 @@ h1 {
     margin-bottom: 2%;
     font-size: 55px;
     text-align: center;
-
 }
+
 .box h2{
     color: rgb(0, 98, 255);
 }
+
 #boxes{
     margin-left: 10px;
     margin-right: 10px;
     height: auto;
 }
+
 .box{
     margin-top: 4%;
     text-align: center;
@@ -267,18 +267,20 @@ h1 {
     display: flex;
     transition: transform 0.3s ease;
 }
+
 .box:hover {
     transform: translateY(-10px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-.element{
-    width: 50%; /* Each div takes 50% of the container's width */
-    padding: 20px;
 
+.element{
+    width: 50%;
+    padding: 20px;
 }
+
 .bright {
-    filter: brightness(0.8); /* Adjust the value as needed, e.g., 0.7 for less brightness */
+    filter: brightness(0.8);
 }
 
 .element img,iframe{
@@ -290,33 +292,29 @@ h1 {
     max-height: 400px !important;
     border-radius: 20px;
     transition: transform 0.3s ease;
-    /*
-    border-color: #fffbfb;
-    border-width: 3px;
-    border-style:solid;
-    box-shadow: 0 0 15px 5px rgba(117, 117, 117, 0.7);
-    */
-
 }
+
 .element img:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease;
 }
+
 .element iframe{
     height: 90%;
 }
+
 .element ul li h2{
     font-size: 25px !important;
-
 }
+
 .element ul li a{
     color: rgb(97, 155, 248);
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
     transition: 0.2s;
-
 }
+
 .element ul li{
     padding: 10px;
     font-size: 18px;
@@ -326,59 +324,59 @@ h1 {
     color: #747373;
     text-decoration: underline;
     transition: 0.2s;
-
 }
 
 @media (max-width: 768px) {
     .col-6 img, iframe{
-        width: 100%; /* Make columns full-width on screens smaller than 768px */
+        width: 100%;
     }
 }
+
 .box {
     display: flex;
     flex-wrap: wrap;
-  }
-  
-  .element {
+}
+
+.element {
     flex: 1;
-    min-width: 300px; /* Set a minimum width for each box */
-    margin: 10px; /* Add some spacing between the boxes */
+    min-width: 300px;
+    margin: 10px;
     padding: 0px;
-  }
-  .element ul{
+}
+
+.element ul{
     list-style: none;
-  }
-  
-  /* Media query for mobile screens */
-  @media (max-width: 559px) {
+}
+
+@media (max-width: 559px) {
     .swap:nth-child(1) {
-      order: 2; /* Swap Box 1 and Box 2 */
+      order: 2;
     }
     
     .swap:nth-child(2) {
-      order: 1; /* Swap Box 1 and Box 2 */
+      order: 1;
     }
     .element{
         margin: 0px;
     }
-  }
+}
+
 /*------------------------------------small js projects------------------------------------*/
 #linklist{
     color: rgb(97, 155, 248);
 }
+
 #twitterembed{
     display: flex;
     justify-content: center;
 }
-/*------------------------------------img slider for aoc------------------------------------*/
-  
+
 /*------------------------------------navbar------------------------------------*/
 * {
     margin: 0;
     padding: 0;
 }
 
-/* Style the navigation bar */
 .navbar {
     padding-top: 20px;
     background-color: black;
@@ -388,7 +386,6 @@ h1 {
     width: 100%;
 }
 
-/* Style the navigation list */
 .nav-list {
     list-style-type: none;
     display: flex;
@@ -401,13 +398,11 @@ h1 {
     margin: 0 15px;
 }
 
-/* Style the navigation links */
 .nav-list li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
-
 }
 
 .nav-list li a:hover {
@@ -417,148 +412,14 @@ h1 {
 .dot{
     width: auto;
 }
+
 .socials a:hover{
     width: 36px;
     height: 36px;
 }
 
-
-
-.aoc-images {
-    position: relative;
-    width: 100%;
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: visible;
-    min-width: 400px; /* Set a minimum width for each box */
-
-}
-
-.aoc-2023, .aoc-2022, .aoc-2024 {
-    position: absolute;
-    max-width: 60% !important;
-    max-height: 60% !important;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.aoc-2022 {
-    transform: rotate(-5deg) translateX(-15%);
-    z-index: 1;
-}
-
-.aoc-2023 {
-    transform: rotate(0deg) translateX(0%);
-    z-index: 2;
-}
-
-.aoc-2024 {
-    transform: rotate(5deg) translateX(15%);
-    z-index: 3;
-}
-
-.aoc-images:hover .aoc-2022 {
-    transform: rotate(-10deg) translateX(-20%);
-}
-
-.aoc-images:hover .aoc-2023 {
-    transform: rotate(0deg) translateY(-5%);
-}
-
-.aoc-images:hover .aoc-2024 {
-    transform: rotate(10deg) translateX(20%);
-    opacity: 1; /* Make visible on hover */
-}
-
-@media (max-width: 768px) {
-    .aoc-images {
-        height: 600px;
-    }
-    
-    .aoc-2023, .aoc-2022, .aoc-2024 {
-        max-width: 70% !important;
-        max-height: 70% !important;
-    }
-}
-
-#contact {
-    text-align: center;
-    padding: 50px 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    margin:auto;
-    max-width: 600px;
-}
-
-#contact h2 {
-    margin-top: 5px;
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    color: #fff;
-}
-
-#contact p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-    color: #ccc;
-}
-
-.email-link {
-    display: inline-block;
-    font-size: 1.2em;
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    padding: 10px 20px;
-    border: 2px solid rgba(0, 98, 255, 0.7);
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.email-link:hover {
-    background-color: rgba(233, 233, 233, 0.7);
-    color: #000;
-}
-.star-container {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-    z-index: 10;
-  }
-  
-  .constellation-star {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 2px;
-    height: 2px;
-    background-color: white;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .constellation-star.hovered {
-    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.7);
-  }
-  
-  .star-name {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 2px 5px;
-    border-radius: 3px;
-    font-size: 12px;
-    white-space: nowrap;
-    pointer-events: none;
-    z-index: 20;
-  }
-
 /*------------------------------------luxury loading overlay------------------------------------*/
 
-/* Loading overlay styles - Sophisticated luxury design */
 .loading-overlay {
     position: fixed;
     top: 0;
@@ -651,7 +512,7 @@ h1 {
     position: absolute;
     width: 30%;
     height: 100%;
-    background: white;
+    background: var(--luxury-gradient);
     animation: elegantProgress 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 2px;
     box-shadow: 0 0 15px var(--luxury-shadow);
@@ -704,7 +565,6 @@ h1 {
     }
 }
 
-/* Base animations */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -714,4 +574,134 @@ h1 {
     }
 }
 
+.aoc-images {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    min-width: 400px;
+}
 
+.aoc-2023, .aoc-2022, .aoc-2024 {
+    position: absolute;
+    max-width: 60% !important;
+    max-height: 60% !important;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.aoc-2022 {
+    transform: rotate(-5deg) translateX(-15%);
+    z-index: 1;
+}
+
+.aoc-2023 {
+    transform: rotate(0deg) translateX(0%);
+    z-index: 2;
+}
+
+.aoc-2024 {
+    transform: rotate(5deg) translateX(15%);
+    z-index: 3;
+}
+
+.aoc-images:hover .aoc-2022 {
+    transform: rotate(-10deg) translateX(-20%);
+}
+
+.aoc-images:hover .aoc-2023 {
+    transform: rotate(0deg) translateY(-5%);
+}
+
+.aoc-images:hover .aoc-2024 {
+    transform: rotate(10deg) translateX(20%);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .aoc-images {
+        height: 600px;
+    }
+    
+    .aoc-2023, .aoc-2022, .aoc-2024 {
+        max-width: 70% !important;
+        max-height: 70% !important;
+    }
+}
+
+#contact {
+    text-align: center;
+    padding: 50px 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin:auto;
+    max-width: 600px;
+}
+
+#contact h2 {
+    margin-top: 5px;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#contact p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.email-link {
+    display: inline-block;
+    font-size: 1.2em;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid rgba(0, 98, 255, 0.7);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.email-link:hover {
+    background-color: rgba(233, 233, 233, 0.7);
+    color: #000;
+}
+
+.star-container {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.constellation-star {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.constellation-star.hovered {
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.7);
+}
+
+.star-name {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 20;
+}
