@@ -3,28 +3,28 @@
 /* Removed problematic @import statements that were causing 404 errors */
 
 :root {
-    /* Sophisticated dark luxury palette */
+    /* Sophisticated dark blue theme matching your CTA buttons */
     --bg-color: #0b0b0f;
     --card-color: #1a1a20;
     --card-hover: #22222a;
     --text-color: #f5f5f7;
-    --accent-color: #c9a96b; /* Sophisticated champagne gold */
-    --hover-color: #e8c474; /* Elegant warm gold for hover */
+    --accent-color: #0062ff; /* Your signature blue */
+    --hover-color: #1a73ff; /* Lighter blue for hover */
     --secondary-text: #b4b4b6;
     --tertiary-text: #8e8e93;
     --shadow-color: rgba(0, 0, 0, 0.6);
     --deep-shadow: rgba(0, 0, 0, 0.8);
-    --luxury-shadow: rgba(201, 169, 107, 0.15);
+    --luxury-shadow: rgba(0, 98, 255, 0.15); /* Blue shadow */
     --border-color: #2c2c34;
     --subtle-border: #38383f;
-    --premium-gold: #d4c194;
-    --dark-gold: #a88a5c;
-    --luxury-bronze: #b8956a;
+    --premium-blue: #0052cc; /* Darker blue */
+    --dark-blue: #003d99; /* Even darker blue */
+    --luxury-blue: #0066ff; /* Vibrant blue */
     --platinum: #e5e5ea;
-    --luxury-gradient: linear-gradient(135deg, #c9a96b 0%, #d4c194 50%, #b8956a 100%);
+    --luxury-gradient: linear-gradient(135deg, #0062ff 0%, #1a73ff 50%, #0052cc 100%); /* Blue gradient */
     --card-gradient: linear-gradient(145deg, #1a1a20 0%, #1f1f26 100%);
     --glass-bg: rgba(26, 26, 32, 0.8);
-    --glass-border: rgba(201, 169, 107, 0.2);
+    --glass-border: rgba(0, 98, 255, 0.2); /* Blue glass border */
 }
 
 body{
@@ -819,16 +819,19 @@ h1 {
 }
 
 .skill-tag {
-    background: var(--luxury-gradient);
-    color: var(--bg-color);
+    background: rgba(0, 98, 255, 0.15);
+    color: var(--text-color);
+    border: 1px solid rgba(0, 98, 255, 0.3);
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 600;
-    transition: transform 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .skill-tag:hover {
+    background: rgba(0, 98, 255, 0.25);
+    border-color: var(--accent-color);
     transform: scale(1.05);
 }
 
