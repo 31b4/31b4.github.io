@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Sitemap: https://www.szilagyibence.com/sitemap.xml
+Allow: /
 
 Sitemap: https://szilagyibence.com/sitemap.xml
